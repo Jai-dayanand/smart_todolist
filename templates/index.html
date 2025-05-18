@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Smart To-Do List</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <h1>My To-Do List</h1>
+    <form action="/add" method="post">
+        <input type="text" name="title" placeholder="New task..." required>
+        <button type="submit">Add</button>
+    </form>
+    <ul>
+        {% for todo in todos %}
+            <li>
+                <form action="/toggle/{{ todo.id }}" method="post" style="display:inline;">
+                    <button type="submit">{{ "✅" if todo.completed else "⬜" }}</button>
+                </form>
+                <span style="text-decoration: {{ 'line-through' if todo.completed else 'none' }}">{{ todo.title }}</span>
+                <form action="/delete/{{ todo.id }}" method="post" style="display:inline;">
+                    <button type="submit">❌</button>
+                </form>
+            </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>

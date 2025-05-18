@@ -1,0 +1,19 @@
+body {
+    font-family: sans-serif;
+    background: #f4f4f4;
+    padding: 2rem;
+}
+
+form, ul {
+    margin-top: 1rem;
+}
+
+input[type="text"] {
+    padding: 0.5rem;
+    width: 200px;
+}
+
+button {
+    padding: 0.5rem;
+    margin-left: 0.5rem;
+}
